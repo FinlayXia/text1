@@ -1,0 +1,217 @@
+一、常用的DOS指令
+d； 进入指定磁盘
+dir:列出当前目录下的文件以及文件夹
+md: 创建目录
+rd: 删除目录
+cd：进入指定目录
+cd..:返回到上一级目录
+cd/:退回到根目录
+cls:清楚屏幕内容
+del：删除文件
+exit：退出
+上下键：查找敲过的命令
+二、第一个Helloworld
+1.步骤
+将代码编写在java扩展名的文件内
+通过javac命令对该文件进行编译
+通过Java命令对生成的class文件进行运行
+2.代码
+public class Test{
+    public static void main(String[] args){
+	//string 是字符序列
+		System.out.println("hello world");
+		}
+}
+3.程序问题总结
+Java注重大小写
+关键字class的意思是类
+关键字public称为访问修饰符，用于访问控制程序的其他部分对代码的访问级别
+一个源文件只能有一个pbulic类，可以有多个class类
+main方法是程序的入口，正确的格式是public static void main()
+每个语句以分号结束，回车不是结束标志
+缩进规范（Tab键缩进）
+三、标识符
+1.定义：用来标识类名、变量名、方法名、类型名、数据组名及文件名的有效字符序列称为标识符。
+2.几个规则
+数字不可以开头。
+严格区分大小写，长度无限制
+不能包含空格
+不可以使用关键字和保留字，但可以包含关键字和保留字
+3.名称命名规则
+包名：所有字母都小写
+类名、接口名：多单词组成时，所有单词的首字母都大写
+变量名、方法名：多单词时，第一个单词首字母小写，第二个单词开始，每个单词首字母大写
+常量名：所以单词首字母大写，每个单词用下划线连接
+四、变量名
+1.定义：数据类型 变量名 = 变量的值
+2.注意
+java中先定义再使用
+该区域内变量的值可以变化
+变量过程中的=为赋值
+变量的作用域：在一对{}中有效
+初始化值
+3.Java中数据类型分为基本数据类型和引用数据类型，其中基本数据类型有8种，除了8种以外的都是引用数据类型
+五、基本数据类型
+1.整数类型
+1).byte型
+分配1个字节内存，占8bit，取值范围为-128（2的7次方）到127之间
+2).short型
+分配2个字节内存，占16位，取值范围为-2的15次方到2的15次方
+3).int型
+4个字节，-2的31次方到2的31次方
+4).long型
+8个字节
+声明：long型常量须在后面加l或者L
+例：long = 12345L
+2、浮点类型
+默认为double型，声明float型常量时，须在后面加f或者F
+1).float型
+数据保留八位有效数字（相对于double型保留的有效数字，称之为单精度）
+分配4个字节内存，取值范围是-2的128次方到2的128次方
+2).double型
+数据保留16位有效数字
+分配8个字节
+注意：比较float型和double时注意数据的实际精度
+3).浮点型常量的两种表现形式
+十进制：    5.12  512.0f 0.512
+科学计数法：5.12e2 512E2 100E-2
+六、字符类型char
+1.定义：用英文的单引号括起来的单个字母、数字、符号
+2.没有负数（取值范围0到65535）
+例：char x = 'a'
+3.转义字符
+char c2 = '\n';换行
+
+\r  回车
+\b  退格 
+\n  换行 
+
+七、布尔类型（boolean）
+1.只有两个常量值：ture和false
+2.内存中占一位
+3.例子
+boolean man = ture
+
+if(man=ture){
+	System.out.print('男性')；
+}
+4.less is more
+八、运算符（operator）
+1.算术运算符
+1）、二元运算
+整数运算：
+如果两个操作数有一个为long，则结果也是为long
+没有long时，结果为int。技术操作数全为short，byte，结果也是为int
+浮点运算：
+默认为double
+如果两个操作数为double，则结果也是double
+只有两个全为float，结果才为float
+取模运算：
+其操作数可以为浮点数，一般使用整数，结果为“余数”
+如：7%3=1，-7%3=-1
+2）、一元运算符
+++，--为一元运算符，该类运算符只需要一个操作数。
+运算符在字母前面时，先自加或自减再赋值
+运算符在字母后面时，先赋值再自加或自减
+public class 运算符 {
+	public static void main(String[] args) {	
+	int a = 3;
+	int b = a++;//执行完后，b=3，先给b赋值，再自增
+	System.out.print("a="+a+"\nb="+b);
+	int b = 0;
+	a = 3;
+	b = ++a;//执行完为b=4，c为4，a先自增，再给b赋值
+	System.out.println("a="+a+"\nc="+b);
+	}
+}
+2.赋值和赋值扩展运算符
+1）、扩展运算符
+a+=b等效于a=a+b 
+2）、注意点
+a*=b+3等效于a=a*(b+3)
+3）、代码
+public class 运算符 {
+  public static void main(String[] args) {	
+	int a = 3;
+	int b = 4;
+	a+=b;//相当于a=a+b
+	System.out.println("a="+a+"\nb="+b);
+	a = 3;
+	a*=b+3;//相当于a=a*(b+3)
+	System.out.println("a="+a+"\nb="+b);
+	}
+}
+3.关系运算符
+1）、主要的运算符
+     ！=	不等于
+     >=		大于后等于
+2）、关系运算符的结果为布尔值：ture和faLse
+3）、注意
+=是赋值运算符，真正的判断两个操作数是否相等的运算符是==
+=、！=所有的数据类型都能用
+>=等仅仅针对数值类型（byte,short,int,long,float,double,char）
+4.逻辑运算符
+1）、用来操作布尔值
+2）、主要的运算符
+&（与） 两个全为true才为true
+|（或） 有一个是true才为true
+！（非）取反
+^（异或）相同为false，相异为true
+&&短路与 只要一个是flase则为false
+||短路或 有一个是true才为true
+3）、短路与和短路非采用从左到右计算，如只需通过运算符左边的操着数就能确定该表达式的值，则不会计算运算符右边的操作数，提高效率
+5.位运算符
+按位取反（~）、按位与、按位或、按位异或、左移、右移
+3   0011
+4   0100
+&   0000
+|   0111
+^	0111
+<<：左移，左移一位相当于乘
+>>：右移，右移一位相当于除2取商
+注意
+&和|即使位运算符也是逻辑运算符。
+当两边都是布尔型时，为逻辑运算符;
+两边为整数型时，为位运算符。
+九、字符串连接符（+）
+字符串（string）
+	string a = "3"
+	int b = 4;
+	int c = 5;
+	char d = a;
+	System.out.println(a+b+c);//结果为345
+	System.out.println(b+c+a);//结果为9+"3",93
+	System.out.println(d+4);//结果为97+4，101
+十、条件运算符
+x?y:z
+z为一个boolean类型表达式，
+如x为true则整个表达式的结果为表达式y的值，否则就输出z的值
+十二、类型转换
+1.自动类型转换
+将容量小的数据类型自动转换成容量大的数据类型（有可能损失精度）
+可以将整型常量直接赋值给 byte.short.char 等类型变量，而不需要进行强制转换，只要不超过其表数范围
+2.强制类型转换（数据的丢失）
+
+
+另：
+使用 Scanner 获取键盘输入
+import java.util.Scanner;//导入scanner
+public class TextScanner{
+	public static void main(String[] arges){
+		Scanner scanner = new Scanner(System.in);//创建新的scanner的类
+		System.out.println("请输入名字：");
+		String name = scanner.nextLine();
+		System.out.println("请输入你的爱好：");
+		String favor = scanner.nextLine();
+		System.out.println("请输入你的年龄：");
+		int age = scanner.nextInt();//年龄是数字，需要age去接收
+		
+		System.out.println("*******************");
+		System.out.println(name);
+		System.out.println(favor);
+		System.out.println(age);
+		System.out.println("来到地球的天数："+age*365);
+		System.out.println("离开地球的天数："+(70-age)*365);
+	}		
+}
+
